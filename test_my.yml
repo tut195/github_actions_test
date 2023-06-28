@@ -1,0 +1,42 @@
+{
+  "name": "Ali",
+  "age": 28,
+  "address": "deedwed:iowdos",
+  "active": true,
+  "key": {
+    "key": "value",
+    "key2": "value2",
+    "key3": {
+      "key3": "mvalue3"
+    }
+  },
+  "jsonObject": {
+    "key": "value",
+    "key2": 33,
+    "key3": {
+      "key": "value"
+    }
+  },
+  "array": [
+    "item1",
+    "item2",
+    {
+      "key": "value"
+    }
+  ],
+  "jsonArray": [
+    "item1",
+    "item2"
+  ],
+  "objectsArray": [
+    {
+      "key": "value",
+      "key2": "value2"
+    },
+    {
+      "key": "value",
+      "key2": "value2"
+    }
+  ],
+  "longText": "adasdaskjdnasd adsfasdasd\nasdasdas asdlskdflsdfnsd \nsdfsdfdsfsdfsdf\n"
+}
