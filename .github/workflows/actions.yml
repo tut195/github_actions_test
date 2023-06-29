@@ -1,9 +1,8 @@
+name: Actions Workflow
 
-  name: Actions Workflow
+on: [push]
 
-  on: [push]
-
-  jobs:
+jobs:
     run-github-actions:
         runs-on: windows-latest
         steps:
