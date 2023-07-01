@@ -1,16 +1,17 @@
-name: Actions Workflow
 
-on: [push]
+  name: Actions Workflow
 
-jobs:
+  on: [push]
+
+  jobs:
     run-github-actions:
-        runs-on: windows-latest
+        runs-on: ubuntu-latest
         steps:
             -  name: Simple JS Action
-               id: greet
+               id: greet # Id of the step
                uses: actions/hello-world-javascript-action@v1
             #    uses: actions/hello-world-javascript-action@master
                with:
-                  who-to-greet: John
+                 who-to-greet: John
             -  name: Log Greeting Time
-               run: echo "${{steps.greet.outputs}}"
+               run: echo "${{steps.greet.outputs.time}}" # here we get na access to the list of steps 
