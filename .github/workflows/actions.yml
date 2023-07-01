@@ -11,6 +11,12 @@
                run: |
                   pwd
                   ls -a
+                  echo $GITHUB_SHA
+                  echo $GITHUB_REPOSITORY
+                  echo $GITHB_WORKSPACE
+                  echo "${{ github.token}}"
+                  # git clone git@github:$GITHUB_REPOSITORY
+                  # git checkout echo $GITHUB_SHA
             -  name: Chewckout
                uses: actions/checkout@v1
             -  name: List Files
