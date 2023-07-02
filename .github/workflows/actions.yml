@@ -1,5 +1,4 @@
-
-  name: Actions Workflow
+name: Actions Workflow
 
 #   on: [push, pull_request,pull ]
 #   on: 
@@ -7,38 +6,38 @@
 #     pull_request:
 #       types: [closed, assigned, opened, reopened]
 
-  on: 
-    schedule:
-      - cron: "0/5 * * * *"
-      - cron: "0/6 * * * *"
-    pull_request:
+on: 
+   schedule:
+    - cron: "0/5 * * * *"
+    - cron: "0/6 * * * *"
+   pull_request:
       types: [closed, assigned, opened, reopened]
 
-  jobs:
-    run-github-actions:
-        runs-on: ubuntu-latest
-        steps:
-            -  name: List Files
-               run: |
-                  pwd
-                  ls -a
-                  echo $GITHUB_SHA
-                  echo $GITHUB_REPOSITORY
-                  echo $GITHB_WORKSPACE
-                  echo "${{ github.token}}"
-                  # git clone git@github:$GITHUB_REPOSITORY
-                  # git checkout echo $GITHUB_SHA
-            -  name: Chewckout
-               uses: actions/checkout@v1
-            -  name: List Files
-               run: |
-                  pwd
-                  ls -a   
-            -  name: Simple JS Action
-               id: greet # Id of the step
-               uses: actions/hello-world-javascript-action@v1
+jobs:
+   run-github-actions:
+      runs-on: ubuntu-latest
+      steps:
+         -  name: List Files
+            run: |
+               pwd
+               ls -a
+               echo $GITHUB_SHA
+               echo $GITHUB_REPOSITORY
+               echo $GITHB_WORKSPACE
+               echo "${{ github.token}}"
+               # git clone git@github:$GITHUB_REPOSITORY
+               # git checkout echo $GITHUB_SHA
+         -  name: Chewckout
+            uses: actions/checkout@v1
+         -  name: List Files
+            run: |
+               pwd
+               ls -a   
+         -  name: Simple JS Action
+            id: greet # Id of the step
+            uses: actions/hello-world-javascript-action@v1
             #    uses: actions/hello-world-javascript-action@master
-               with:
-                 who-to-greet: John
-            -  name: Log Greeting Time
-               run: echo "${{steps.greet.outputs.time}}" # here we get na access to the list of steps
+            with:
+               who-to-greet: John
+         -  name: Log Greeting Time
+            run: echo "${{steps.greet.outputs.time}}" # here we get na access to the list of steps
