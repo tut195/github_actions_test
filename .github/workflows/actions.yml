@@ -7,6 +7,9 @@ name: Actions Workflow
 #       types: [closed, assigned, opened, reopened]
 
 on: 
+   repository_dispatch: # for manual trigger
+      types: [build,]
+
    # schedule:
    #  - cron: "0/5 * * * *"
    #  - cron: "0/6 * * * *"
