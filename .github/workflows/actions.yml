@@ -7,8 +7,25 @@ name: Actions Workflow
 #       types: [closed, assigned, opened, reopened]
 
 on: 
-   repository_dispatch: # for manual trigger
-      types: [build]
+   # push:
+   pull_request:   
+      # branches-ignore: # ignoring branches
+      branches:
+         - master
+         - 'feature/*' # matches feature/featA, feature/featB  and doesn't math feature/feat/a
+         - 'feature/**' # will match all variants
+         - '!feature/featC' # this '!' sign meant ignore particular branchv
+      # tags:
+      #    - v1.*
+      # tags-ignore:      
+      paths:
+         - '**.js' 
+         - '!filename.js'
+      # paths-ignore: # can't be used at the same time
+      #    - 'docs/**'
+
+   # repository_dispatch: # for manual trigger
+   #    types: [build]
 
    # schedule:
    #  - cron: "0/5 * * * *"
