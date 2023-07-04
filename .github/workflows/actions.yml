@@ -8,7 +8,7 @@ name: Actions Workflow
 
 on: 
    repository_dispatch: # for manual trigger
-      types: [build,]
+      types: [build]
 
    # schedule:
    #  - cron: "0/5 * * * *"
@@ -20,6 +20,8 @@ jobs:
    run-github-actions:
       runs-on: ubuntu-latest
       steps:
+         -  name: payloads
+            run: echo ${{github.event.client_payload.env}}
          -  name: List Files
             run: |
                pwd
