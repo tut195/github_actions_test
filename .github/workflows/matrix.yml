@@ -8,6 +8,14 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
         node_version: [6, 8, 10]
+        include: 
+          - os: ubuntu-latest
+            node_version: 4
+        exclude:
+          - os: ubuntu-latest
+            node_version: 6
+          - os: macos-latest
+            node_version: 8  
       # If job is failed then all other jobs will alsao fail 
     #   fail-fast: true # optional
       max-parallel: 2
