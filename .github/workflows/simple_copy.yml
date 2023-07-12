@@ -5,10 +5,15 @@ on: [push]
 jobs:
   run-shell-command:
     runs-on: macos-lates
+    # By default 360 minutes else will canceled
+    timeout-minutes: 360
     steps:
       - name: echo a string
-        run: echo
+        run: echo "Hello world"
+        timeout-minutes: 20
       - name: multiline script
+        # Will run all other steps even if the step will fail
+        continue-on-error: true
         run: |
           node -v 
           npm -v
@@ -19,6 +24,7 @@ jobs:
         shell: python
   run-windows-commands:
     runs-on: windows-latest
+    # like a depends on 'run-shell-command'
     needs: ["run-shell-command"]
     steps:
       - name: Directory PowerShell
